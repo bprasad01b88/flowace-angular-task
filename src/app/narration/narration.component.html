@@ -224,7 +224,7 @@
                         "
                         class="duration"
                       >
-                        {{ row.time  || "hh:mm:ss"}}
+                        {{ row.time || "hh:mm:ss" }}
                       </div>
 
                       <div
@@ -317,16 +317,41 @@
       </div>
       <div class="modal-undone-heading">This cannot be undone !</div>
       <div class="modal-delete-icon">
-        <div class="delete-icon-block"></div>
+        <div class="delete-icon-block">
+          <svg
+            width="100px"
+            height="100px"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="#d90429"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+
+            <g id="SVGRepo_iconCarrier">
+              <path
+                d="M13.995 1.827a1.745 1.745 0 0 0-2.969 0l-9.8 17.742a1.603 1.603 0 0 0 0 1.656 1.678 1.678 0 0 0 1.48.775H22.28a1.68 1.68 0 0 0 1.484-.775 1.608 1.608 0 0 0 .003-1.656zM12 8h1v7h-1zm.5 10.5a1 1 0 1 1 1-1 1.002 1.002 0 0 1-1 1z"
+              />
+
+              <path fill="none" d="M0 0h24v24H0z" />
+            </g>
+          </svg>
+        </div>
       </div>
       <div class="modal-actions">
         <div class="modal-action-section">
-          <div class="modal-actions-block"></div>
+          <div class="modal-actions-block">
+            <button class="no-button" (click)="closeModal()">Cancel</button>
+            <button class="yes-button" (click)="confirmDelete()">
+              Yes, Delete
+            </button>
+          </div>
         </div>
-        <button class="no-button" (click)="closeModal()">Cancel</button>
-        <button class="yes-button" (click)="confirmDelete()">
-          Yes, Delete
-        </button>
       </div>
     </div>
   </div>
