@@ -1,0 +1,21 @@
+<div class="user-select">
+    <div class="select-box" (click)="onDropdownOpen()">
+      <span *ngIf="!selectedUser">Select a user</span>
+      <span *ngIf="selectedUser">{{ selectedUser }}</span>
+      <span class="arrow">{{ dropdownOpen ? '▲' : '▼' }}</span>
+    </div>
+  
+    <div class="dropdown" *ngIf="dropdownOpen" #dropdown (scroll)="onScroll()">
+      <input type="text" placeholder="Search users..." [(ngModel)]="searchTerm" (input)="onSearchChange()" />
+  
+      <ul>
+        <li *ngFor="let user of displayedUsers" (click)="selectUser(user)">
+          <div class="user-details">
+            <span class="user-detail-name">{{ user.name }}</span>
+            <span class="user-detail-email">{{ user.email }}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

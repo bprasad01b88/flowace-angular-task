@@ -1,0 +1,129 @@
+/* Main container for the select box */
+.user-select {
+  width: 250px;
+  margin: 20px;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+/* Select box styles */
+.select-box {
+  border: 1px solid #ccc;
+  padding: 10px 12px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.select-box:hover {
+  border-color: #ff5722;
+}
+
+.select-box span {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Arrow for dropdown */
+.arrow {
+  font-size: 12px;
+  color: #999;
+  transition: transform 0.3s;
+}
+
+.dropdown-open .arrow {
+  transform: rotate(180deg); /* Rotate arrow when dropdown is open */
+}
+
+/* Dropdown container */
+.dropdown {
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: white;
+  position: absolute;
+  width: 91%;
+  top: 38px;
+  left: 0;
+  z-index: 1000;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: max-height 0.3s ease-in-out;
+}
+
+.dropdown input {
+  width: calc(100% - 20px);
+  padding: 8px 10px;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.dropdown input:focus {
+  border-color: #ff5722;
+  outline: none;
+}
+
+/* User list */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 8px 10px;
+  font-size: 14px;
+  color: #333;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+li:hover {
+  background-color: #f5f5f5;
+  color: #000;
+  border-radius: 4px;
+}
+
+/* Custom scrollbar for the dropdown */
+.dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 8px;
+}
+
+.dropdown::-webkit-scrollbar-thumb {
+  background-color: #ff5722;
+  border-radius: 6px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.user-detail-name {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.user-detail-email {
+  font-size: 14px;
+  font-weight: 500;
+}
