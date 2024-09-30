@@ -16,7 +16,7 @@ interface RowData {
   styleUrls: ['./narration.component.css'],
 })
 export class NarrationComponent {
-  [x: string]: any;
+  hasTimeEntered: boolean = false;
   rows: RowData[] = [];
   totalTime: number = 0;
   availableTime: number = 3600;
@@ -31,11 +31,16 @@ export class NarrationComponent {
   isTableExpanded = false;
   selectedRows: number[] = [];
   @ViewChild('titleInput', { static: false }) titleInput!: ElementRef;
+  @ViewChild('descriptionInput', { static: false })
+  descriptionInput!: ElementRef;
+  @ViewChild('timeInput', { static: false }) timeInput!: ElementRef;
   selectedDate: string | null = null;
   isShowingActivity: boolean = false;
+  isTimeVerified: any = 0;
 
   constructor() {
     this.loadFromLocalStorage();
+    this.loadTimeVerificationStates();
   }
 
   toggleTable() {
@@ -53,21 +58,6 @@ export class NarrationComponent {
         this.selectedRows.splice(idx, 1);
       }
     }
-  }
-
-  confirmDelete() {
-    this.deleteSelectedRows();
-    this.isModalOpen = false;
-  }
-
-  deleteSelectedRows() {
-    const rowsToDelete = [...this.selectedRows].sort((a, b) => b - a);
-
-    rowsToDelete.forEach((index) => {
-      this.deleteRow(index);
-    });
-
-    this.selectedRows = [];
   }
 
   openModal() {
@@ -108,7 +98,6 @@ export class NarrationComponent {
       this.rows.push(newRow);
       this.saveToLocalStorage();
     } else {
-      newRow.timeError = 'Insufficient available time for a new row.';
       this.rows.push(newRow);
     }
   }
@@ -124,10 +113,29 @@ export class NarrationComponent {
   saveEdit() {
     if (this.currentEditRow) {
       this.currentEditRow.previousTime = this.currentEditRow.time;
+      if (this.currentEditRow.time && this.currentEditRow.time !== '00:00:00') {
+        this.hasTimeEntered = true;
+      }
+      this.saveTimeVerificationStates();
       this.saveToLocalStorage();
     }
     this.editingField = null;
     this.currentEditRow = null;
+  }
+
+  confirmDelete() {
+    this.deleteSelectedRows();
+    this.isModalOpen = false;
+  }
+
+  deleteSelectedRows() {
+    const rowsToDelete = [...this.selectedRows].sort((a, b) => b - a);
+
+    rowsToDelete.forEach((index) => {
+      this.deleteRow(index);
+    });
+
+    this.selectedRows = [];
   }
 
   deleteRow(index: number) {
@@ -166,11 +174,19 @@ export class NarrationComponent {
       return;
     }
 
+    if (row.time && row.time !== '00:00:00') {
+      this.hasTimeEntered = true; 
+    } else {
+      this.hasTimeEntered = false;
+    }
+    this.saveTimeVerificationStates(); 
+
     const newInputTime = hours * 3600 + minutes * 60 + seconds;
     const previousTime = this.getRowTimeInSeconds(row.previousTime);
 
     const potentialAvailableTime =
       this.availableTime + previousTime - newInputTime;
+    this.isTimeVerified = potentialAvailableTime;
 
     if (newInputTime > this.availableTime + previousTime) {
       row.timeError = 'Exceeds available time';
@@ -199,7 +215,7 @@ export class NarrationComponent {
       }
     });
   }
-
+  
   updateTotalTime() {
     this.totalTime = this.rows.reduce((acc, row) => {
       const timeParts = row.time.split(':');
@@ -252,6 +268,24 @@ export class NarrationComponent {
   saveToLocalStorage() {
     localStorage.setItem('narrationRows', JSON.stringify(this.rows));
     localStorage.setItem('availableTime', this.availableTime.toString());
+  }
+
+  loadTimeVerificationStates() {
+    const savedTimeVerified = localStorage.getItem('isTimeVerified');
+    const savedHasTimeEntered = localStorage.getItem('hasTimeEntered');
+
+    if (savedTimeVerified) {
+      this.isTimeVerified = parseInt(savedTimeVerified);
+    }
+
+    if (savedHasTimeEntered) {
+      this.hasTimeEntered = savedHasTimeEntered === 'true';
+    }
+  }
+
+  saveTimeVerificationStates() {
+    localStorage.setItem('isTimeVerified', this.isTimeVerified.toString());
+    localStorage.setItem('hasTimeEntered', this.hasTimeEntered.toString());
   }
 
   viewActivities() {

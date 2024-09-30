@@ -119,11 +119,11 @@ li:hover {
   gap: 4px;
 }
 .user-detail-name {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
 }
 
 .user-detail-email {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 500;
 }

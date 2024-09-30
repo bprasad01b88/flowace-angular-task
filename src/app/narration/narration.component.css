@@ -386,7 +386,7 @@
 .narration-table-thead-th {
   font-style: normal;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.1px;
   border-right: 1px solid #e0e0e0;
@@ -422,7 +422,7 @@ th.narration-table-thead-th:last-child {
   display: flex;
 }
 .narration-break-sum-text {
-  font-size: 10px;
+  font-size: 12px;
   line-height: 16px;
   text-align: right;
   letter-spacing: 0.25px;
@@ -501,7 +501,7 @@ tr.narration-activity-header {
 
 th.narration-activity-table-header-th {
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 14px;
   line-height: 24px;
   letter-spacing: 0.1px;
@@ -527,34 +527,34 @@ td.narration-top-ten-activity {
   justify-content: center;
 }
 
-.narration-activity-list .narration-activity-item{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 8px;
-    border-radius: 4px;
-    background: #f5f5f5;
-    margin: 12px 0;
+.narration-activity-list .narration-activity-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 8px;
+  border-radius: 4px;
+  background: #f5f5f5;
+  margin: 12px 0;
 }
 
-.narration-activity-title{
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: .1px;
-    color: rgba(0, 0, 0, .87);
+.narration-activity-title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: rgba(0, 0, 0, 0.87);
 }
 
-.narration-activity-description{
-    padding-top: 4px;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: .1px;
-    color: rgba(0, 0, 0, .87);
+.narration-activity-description {
+  padding-top: 4px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 0.1px;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .narration-btn {
@@ -591,38 +591,33 @@ input {
   border: 0;
   border-radius: 4px;
   font-size: 14px;
-  font-family: Arial, sans-serif;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
   transition: border-color 0.3s, box-shadow 0.3s;
   box-shadow: none;
   resize: none;
 }
 
-/* Input focus state */
 input:focus {
-  border-color: #007bff; /* Change border color to a blue shade */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Add shadow on focus */
-  outline: none; /* Remove default outline */
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  outline: none;
 }
 
-/* Placeholder styles */
 input::placeholder {
-  color: #aaa; /* Light grey for placeholder text */
-  font-style: italic; /* Italic style */
+  color: #aaa;
+  font-style: italic;
 }
 
-/* Error message styling */
 .error {
-  color: red; /* Red color for error messages */
-  font-size: 12px; /* Smaller font size for error */
-  margin-top: 5px; /* Spacing above error message */
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 .editor-content {
   animation: rotateMenu 400ms ease-in-out forwards;
   transform-origin: top center;
-
   z-index: 2;
-
   background: #ffffff;
   box-shadow: 0px 0px 20px rgb(0 0 0 / 15%);
   border-radius: 8px;
@@ -657,7 +652,6 @@ input::placeholder {
   justify-content: space-between;
 }
 
-/* Hide the checkbox input */
 .custom-checkbox input[type="checkbox"] {
   position: absolute;
   opacity: 0;
@@ -665,7 +659,6 @@ input::placeholder {
   height: 0;
 }
 
-/* Custom checkbox style - initially hidden */
 .custom-checkbox-label {
   display: inline-block;
   width: 20px;
@@ -676,26 +669,23 @@ input::placeholder {
   position: relative;
   cursor: pointer;
   transition: background-color 0.3s ease, border-color 0.3s ease;
-  visibility: hidden; /* Hidden by default */
-  opacity: 0; /* Make it invisible */
-  transition: visibility 0s, opacity 0.3s ease; /* Smooth fade-in effect */
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s ease;
 }
 
-/* Show checkbox label when hovering on the row */
 .narration-table-tbody-tr:hover .custom-checkbox-label {
-  visibility: visible; /* Make it visible when hovering over the row */
-  opacity: 1; /* Smooth fade-in */
+  visibility: visible;
+  opacity: 1;
 }
 
-/* Keep checkbox label visible when it's checked */
 input[type="checkbox"]:checked + .custom-checkbox-label {
-  visibility: visible; /* Always visible when checked */
+  visibility: visible;
   opacity: 1;
   background-color: #38b000;
   border-color: #38b000;
 }
 
-/* Checked state: Show a checkmark */
 .custom-checkbox-label::after {
   content: "";
   position: absolute;
@@ -711,25 +701,22 @@ input[type="checkbox"]:checked + .custom-checkbox-label {
   transition: opacity 0.3s ease;
 }
 
-/* Show checkmark when checked */
 input[type="checkbox"]:checked + .custom-checkbox-label::after {
   opacity: 1;
 }
 
-/* Add a smooth hover effect for the label */
 .custom-checkbox-label:hover {
   border-color: #38b000;
 }
 
-/* Floating button */
 .floating-button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: #38b000;
+  background-color: #ff5722;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 50px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -738,17 +725,16 @@ input[type="checkbox"]:checked + .custom-checkbox-label::after {
 }
 
 .floating-button:hover {
-  background-color: #38b000;
+  background-color: #ff5722;
 }
 
 .narration-delete-button {
-  background-color: #38b000;
+  background-color: #ff5722;
   color: #fff;
   border: unset;
   cursor: pointer;
 }
 
-/* Modal overlay */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -777,7 +763,6 @@ input[type="checkbox"]:checked + .custom-checkbox-label::after {
   border-radius: 16px;
 }
 
-/* Modal content */
 .modal-content {
   transform: scale(1);
   opacity: 1;
@@ -891,14 +876,14 @@ input[type="checkbox"]:checked + .custom-checkbox-label::after {
   justify-content: flex-end;
 }
 
-.cursor-pointer{
-    cursor: pointer;
+.cursor-pointer {
+  cursor: pointer;
 }
 
-.narration-active-row{
-    background: #e8f5e9;
+.narration-active-row {
+  background: #e8f5e9;
 }
 
-.narration-date-grp{
-    border-bottom: 1px solid #ccc
+.narration-date-grp {
+  border-bottom: 1px solid #ccc;
 }
