@@ -10,10 +10,16 @@
   
       <ul>
         <li *ngFor="let user of displayedUsers" (click)="selectUser(user)">
-          <div class="user-details">
-            <span class="user-detail-name">{{ user.name }}</span>
-            <span class="user-detail-email">{{ user.email }}</span>
+          <div class="user-details-section">
+            <span class="icon" [attr.data-letter]="user.icon.charAt(0)">
+              {{ user.icon }}
+            </span>
+            <div class="user-details">
+              <span class="user-detail-name">{{ user.name }}</span>
+              <span class="user-detail-email">{{ user.email }}</span>
+            </div>
           </div>
+          
         </li>
       </ul>
     </div>

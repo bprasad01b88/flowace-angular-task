@@ -113,6 +113,11 @@ li:hover {
   border-radius: 6px;
 }
 
+.user-details-section {
+  display: flex;
+  gap: 4px;
+}
+
 .user-details {
   display: flex;
   flex-direction: column;
@@ -126,4 +131,82 @@ li:hover {
 .user-detail-email {
   font-size: 12px;
   font-weight: 500;
+}
+
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+  margin-right: 10px;
+}
+
+.icon[data-letter="A"],
+.icon[data-letter="B"] {
+  background-color: #ff5733;
+}
+
+.icon[data-letter="C"],
+.icon[data-letter="D"] {
+  background-color: #33ff57;
+}
+
+.icon[data-letter="E"],
+.icon[data-letter="F"] {
+  background-color: #3375ff;
+}
+
+.icon[data-letter="G"],
+.icon[data-letter="H"] {
+  background-color: #ff33d4;
+}
+
+.icon[data-letter="I"],
+.icon[data-letter="J"] {
+  background-color: #ffbb33;
+}
+
+.icon[data-letter="K"],
+.icon[data-letter="L"] {
+  background-color: #bb33ff;
+}
+
+.icon[data-letter="M"],
+.icon[data-letter="N"] {
+  background-color: #33ffd7;
+}
+
+.icon[data-letter="O"],
+.icon[data-letter="P"] {
+  background-color: #ff3380;
+}
+
+.icon[data-letter="Q"],
+.icon[data-letter="R"] {
+  background-color: #33ffb2;
+}
+
+.icon[data-letter="S"],
+.icon[data-letter="T"] {
+  background-color: #a233ff;
+}
+
+.icon[data-letter="U"],
+.icon[data-letter="V"] {
+  background-color: #33ffff;
+}
+
+.icon[data-letter="W"],
+.icon[data-letter="X"] {
+  background-color: #ffd733;
+}
+
+.icon[data-letter="Y"],
+.icon[data-letter="Z"] {
+  background-color: #ff3380;
 }
